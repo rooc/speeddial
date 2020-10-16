@@ -1,7 +1,14 @@
 @tailwind base;
-
-.change {color: black;}
-
 @tailwind components;
-
 @tailwind utilities;
+
+body.birds {
+	background-color: #FFF;
+	background-image: url("/img/background_top.jpg"), url("/img/background_strip.jpg");
+	background-repeat: no-repeat, repeat;
+	background-position: right top, 0% 0%;
+	background-attachment: scroll, scroll;
+	background-size: auto, auto;
+}
+
+

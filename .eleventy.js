@@ -4,6 +4,8 @@ module.exports = function(eleventyConfig) {
 	eleventyConfig.setUseGitIgnore(false);
 
 	eleventyConfig.addWatchTarget("./_tmp/styles.css");
+	eleventyConfig.addWatchTarget("./js/scripts.js");
+	eleventyConfig.addPassthroughCopy("img");
 
 	eleventyConfig.addPassthroughCopy({
 		"./_tmp/styles.css": "./css/styles.css"
@@ -11,6 +13,10 @@ module.exports = function(eleventyConfig) {
 
 	eleventyConfig.addPassthroughCopy({
 		"./node_modules/alpinejs/dist/alpine.js": "./js/alpine.js",
+	});
+	
+	eleventyConfig.addPassthroughCopy({
+		"./js/scripts.js": "./js/scripts.js",
 	});
 
 	eleventyConfig.addShortcode("version", function() {
