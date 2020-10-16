@@ -1,0 +1,21 @@
+{
+	"name": "speeddial",
+	"version": "1.0.0",
+	"main": "index.js",
+	"repository": "git@github.com:rooc/speeddial.git",
+	"author": "rooc <vadym.hrachov@pm.me>",
+	"license": "MIT",
+	"scripts": {
+		"dev": "eleventy --serve & postcss styles/styles.css --o _tmp/styles.css --watch",
+		"start": "eleventy --serve & postcss styles/styles.css --o _tmp/styles.css --watch",
+		"build": "ELEVENTY_PRODUCTION=true eleventy & NODE_ENV=production postcss styles/styles.css --o _site/styles.css"
+	},
+	"dependencies": {
+		"@11ty/eleventy": "^0.11.0",
+		"alpinejs": "^2.7.0",
+		"html-minifier": "^4.0.0",
+		"postcss-clean": "^1.1.0",
+		"postcss-cli": "^8.1.0",
+		"tailwindcss": "^1.9.2"
+	}
+}
