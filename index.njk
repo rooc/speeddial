@@ -4,7 +4,7 @@
 {% block content %}
 <div class="fixed inset-0 flex justify-center items-center">
 	<div x-data="searchform()">
-		<input type="text" x-model="term">
+		<input type="text" x-model="term" autofocus x-on:keydown.enter="search">
 		<button x-on:click="search">Search</button>
 	</div>
 </div>

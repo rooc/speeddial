@@ -5,19 +5,12 @@ module.exports = function(eleventyConfig) {
 
 	eleventyConfig.addWatchTarget("./_tmp/styles.css");
 	eleventyConfig.addWatchTarget("./js/scripts.js");
-	eleventyConfig.addPassthroughCopy("img");
-
-	eleventyConfig.addPassthroughCopy({
-		"./_tmp/styles.css": "./css/styles.css"
-	});
-
-	eleventyConfig.addPassthroughCopy({
-		"./node_modules/alpinejs/dist/alpine.js": "./js/alpine.js",
-	});
+	eleventyConfig.addWatchTarget("img");
 	
-	eleventyConfig.addPassthroughCopy({
-		"./js/scripts.js": "./js/scripts.js",
-	});
+	eleventyConfig.addPassthroughCopy("img");
+	eleventyConfig.addPassthroughCopy({	"./_tmp/styles.css": "./css/styles.css"});
+	eleventyConfig.addPassthroughCopy({	"./js/scripts.js": "./js/scripts.js"});
+	eleventyConfig.addPassthroughCopy({"./node_modules/alpinejs/dist/alpine.js": "./js/alpine.js",});
 
 	eleventyConfig.addShortcode("version", function() {
 		return String(Date.now());

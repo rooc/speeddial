@@ -6,11 +6,12 @@
 	"author": "rooc <vadym.hrachov@pm.me>",
 	"license": "MIT",
 	"scripts": {
-		"dev": "eleventy --serve --port=7000 & postcss styles/styles.css --o _tmp/styles.css --watch",
-		"start": "eleventy --serve --port=7000 & postcss styles/styles.css --o _tmp/styles.css --watch",
-		"build": "ELEVENTY_PRODUCTION=true eleventy & NODE_ENV=production postcss styles/styles.css --o _site/css/styles.css"
+		"clean": "rimraf _site",
+		"dev": "eleventy --serve --port=7000 & postcss css/styles.css --o _tmp/styles.css --watch",
+		"build": "yarn clean && ELEVENTY_PRODUCTION=true eleventy & NODE_ENV=production postcss css/styles.css --o _site/css/styles.css"
 	},
 	"dependencies": {
+		"rimraf": "^3.0.2",
 		"@11ty/eleventy": "^0.11.0",
 		"alpinejs": "^2.7.0",
 		"html-minifier": "^4.0.0",
