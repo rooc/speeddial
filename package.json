@@ -1,22 +1,29 @@
 {
-	"name": "speeddial",
+	"name": "eleventy-starter",
 	"version": "1.0.0",
-	"main": "index.js",
+	"main": "scripts.js",
 	"repository": "git@github.com:rooc/speeddial.git",
 	"author": "rooc <vadym.hrachov@pm.me>",
 	"license": "MIT",
 	"scripts": {
-		"clean": "rimraf _site",
-		"dev": "eleventy --serve --port=7000 & postcss css/styles.css --o _tmp/styles.css --watch",
-		"build": "yarn clean && ELEVENTY_PRODUCTION=true eleventy & NODE_ENV=production postcss css/styles.css --o _site/css/styles.css"
+		"clean"      : "rimraf dist",
+		"jsmin"      : "terser dist/js/*.js -o dist/js/scripts.min.js",
+		"htmlmin"    : "html-minifier --input-dir dist --output-dir dist --file-ext html --collapse-whitespace --remove-comments --use-short-doctype",
+		"elv"        : "ELEVENTY_ENV=development eleventy --serve --port=9000",
+		"elvprod"    : "ELEVENTY_ENV=production eleventy",
+		"postcss"    : "postcss static/css/styles.css --o _tmp/styles.css --watch",
+		"postcssprod": "NODE_ENV=production postcss static/css/styles.css --o dist/css/styles.css",
+		"dev"        : "yarn elv & yarn postcss",
+		"build"      : "yarn clean && yarn elvprod && yarn postcssprod && yarn jsmin && yarn htmlmin"
 	},
 	"dependencies": {
-		"rimraf": "^3.0.2",
 		"@11ty/eleventy": "^0.11.0",
 		"alpinejs": "^2.7.0",
 		"html-minifier": "^4.0.0",
 		"postcss-clean": "^1.1.0",
 		"postcss-cli": "^8.1.0",
-		"tailwindcss": "^1.9.2"
+		"rimraf": "^3.0.2",
+		"tailwindcss": "^1.9.2",
+		"terser": "^5.3.5"
 	}
 }
