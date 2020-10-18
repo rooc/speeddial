@@ -1,0 +1,15 @@
+{
+ "port": 9000,
+ "serve": "dist",
+ "bind": "0.0.0.0",
+ "delay": 100,
+ "quiet": true,
+ "watchexps": [
+    "dist/js/*.js",
+    "dist/css/*.css",
+    "dist/**/*.html",
+    "dist/img/"
+ ],
+ "http2": false,
+ "open": false
+}

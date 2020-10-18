@@ -1,6 +1,9 @@
 module.exports = {
+	future: {
+		purgeLayersByDefault: true,
+	},
 	purge: {
-		content: ["_site/**/*.html"],
+		content: ["dist/**/*.html"],
 		options: {
 			whitelist: [],
 		},
